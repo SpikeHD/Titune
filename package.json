@@ -1,0 +1,19 @@
+{
+  "name": "titune",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && esbuild dist/index.js --bundle --outfile=dist/bundle.js --platform=browser --minify --sourcemap"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "LGPL-3.0-or-later",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.14.0",
+    "@typescript-eslint/parser": "^6.14.0",
+    "esbuild": "^0.19.9",
+    "eslint": "^8.55.0",
+    "typescript": "^5.3.3"
+  }
+}
