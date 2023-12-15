@@ -10,7 +10,6 @@
 </div>
 <div align="center">
  <img src="https://img.shields.io/github/commit-activity/m/SpikeHD/Titune" />
- <img src="https://img.shields.io/github/release-date/SpikeHD/Titune" />
  <img src="https://img.shields.io/github/stars/SpikeHD/Titune" />
 </div>
 
