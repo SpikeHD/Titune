@@ -15,7 +15,7 @@
 </div>
 
 <div align="center">
-  Entirely client-side, fully time & song synced for everyone, customizable radio website.
+  Entirely client-side, fully time & song synced for everyone, radio website.
 </div>
 
 # Table of Contents
@@ -31,7 +31,6 @@
 
 * Entirely client-side. Zero backend for time or song syncing
 * Create your own radio based on a YouTube playlist
-* Customizable
 
 # Thank you
 
