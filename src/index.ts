@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   // Set page title to Titune | <radio name>
   const radioName = getRadioName()
-  document.title = `Titune | ${radioName}`
+  document.title = radioName ? `Titune | ${radioName}` : 'Titune'
 
   initAudioController()
 
