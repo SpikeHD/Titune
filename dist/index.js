@@ -41,6 +41,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!identifier.includes(song?.title ?? 'Unknown') && song) {
             const highestWidthThumb = song.videoThumbnails.reduce((prev, curr) => curr.width > prev.width ? curr : prev).url;
             cover.setAttribute('src', highestWidthThumb);
+            // Also set the body background to the cover
+            const bgCover = document.getElementById('bg-cover');
+            bgCover.style.backgroundImage = `url(${highestWidthThumb})`;
             setSongAndTime(song, elapsed);
         }
         // Prevents rapid DOM updates
