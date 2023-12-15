@@ -21,6 +21,22 @@ html, body {
   overflow: hidden;
 }
 
+html.transparent {
+  background: transparent;
+}
+
+html.transparent body {
+  background: transparent;
+}
+
+html.transparent #bg-cover {
+  display: none;
+}
+
+html.transparent #side-options {
+  display: none;
+}
+
 #bg-cover {
   position: absolute;
   top: 0;
