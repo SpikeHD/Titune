@@ -16,7 +16,7 @@ export const qualityList = [
 const defaultOptions: Options = {
   invidiousInstance: 'https://vid.puffyan.us/',
   shaders: true,
-  volume: 100,
+  volume: 50,
   preferredCodec: 'mp4a',
   maxQuality: 'AUDIO_QUALITY_HIGH'
 }

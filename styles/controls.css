@@ -1,0 +1,47 @@
+.icon {
+  width: 2em;
+}
+
+#volume {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  height: 5em;
+  width: 30%;
+  
+  user-select: none;
+}
+
+#volume-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+
+  height: 1em;
+}
+
+#volume-bar:hover {
+  cursor: pointer;
+}
+
+.volume-bar-line {
+  height: 100%;
+  width: 4px;
+
+  margin: 0 2px 0 2px;
+
+  background: #222;
+
+  pointer-events: none;
+}
+
+.volume-bar-line.active {
+  background: #444;
+}
+
+#volume-bar.muted .volume-bar-line {
+  background: #AA4A44;
+}
