@@ -26,13 +26,15 @@ interface Video {
   author: string
   authorId: string
   authorUrl: string
-  videoThumbnails: {
-    quality: string
-    url: string
-    width: number
-    height: number
-  }[]
+  videoThumbnails: VideoThumbnails[] | [VideoThumbnails[]]
   lengthSeconds: number
+}
+
+interface VideoThumbnails {
+  quality: string
+  url: string
+  width: number
+  height: number
 }
 
 interface VideoFormat {

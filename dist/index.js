@@ -42,7 +42,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         const { song, elapsed } = await getCurrentSong(playlistId);
         // If the song changes, set the new song and timestamp
         if (!identifier.includes(song?.title ?? 'Unknown') && song) {
-            const highestWidthThumb = song.videoThumbnails.reduce((prev, curr) => curr.width > prev.width ? curr : prev).url;
+            const arrayInArrayMaybe = song.videoThumbnails.length > 0 && Array.isArray(song.videoThumbnails[0]) ? song.videoThumbnails[0] : song.videoThumbnails;
+            // @ts-expect-error This array stuff is funky
+            const highestWidthThumb = arrayInArrayMaybe.reduce((prev, curr) => curr.width > prev.width ? curr : prev).url;
             cover.setAttribute('src', highestWidthThumb);
             // Also set the body background to the cover
             const bgCover = document.getElementById('bg-cover');
