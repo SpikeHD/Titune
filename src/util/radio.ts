@@ -46,3 +46,26 @@ export async function getCurrentSong(playlistId: string) {
 
   return { song, elapsed: elapsedInSong }
 }
+
+/**
+ * We may want to get the next song, previous song, or maybe a song played 4 songs ago.
+ * 
+ * For example, getting the next song would be offset = 1, previous song would be offset = -1, and a song played 4 songs ago would be offset = -4.
+ * Automatically wraps around the playlist if necessary.
+ */
+export async function getSongRelative(playlistId: string, offset: number) {
+  const seed = seedFromPlaylistId(playlistId)
+  const rawSongs = await playlistVideos(playlistId)
+  const songs = shuffle(rawSongs, seed)
+  const current = await getCurrentSong(playlistId)
+
+  // Find the index of the current song
+  let idx = songs.findIndex(s => s.videoId === current.song?.videoId)
+
+  // Add the offset. Wrap around if necessary
+  idx += offset
+  idx %= songs.length
+
+  return songs[idx]
+}
+  

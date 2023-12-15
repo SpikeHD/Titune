@@ -5,6 +5,12 @@
     <meta charset="utf-8">
     <title>Titune</title>
     <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/controls.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap" rel="stylesheet"> 
 
     <!-- Meta tags yipee -->
     <meta content="Titune" property="og:title">
@@ -21,11 +27,27 @@
   <script src="dist/bundle.js"></script>
 
   <body>
-    <span id="currently-playing">
-      PLACEHOLDER
-    </span>
-    <span id="time-elapsed">
-      PLACEHOLDER
-    </span>
+    <audio id="radio-audio"></audio>
+
+    <div id="main-container">
+      <div id="playing-container">
+        <div id="cover-container">
+          <img id="cover" src="https://via.placeholder.com/300x300" alt="Cover art">
+        </div>
+
+        <span id="currently-playing">
+          Waiting...
+        </span>
+
+        <span id="duration-area">
+          <span id="time-elapsed">0:00</span>
+          <div id="progress-bar">
+            <div id="progress-bar-fill"></div>
+          </div>
+          <span id="duration">0:00</span>
+        </span>
+      </div>
+    </div>
+
   </body>
 </html>

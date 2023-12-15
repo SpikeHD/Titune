@@ -1,0 +1,87 @@
+audio {
+  display: none;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  background: #000;
+  color: #fff;
+
+  font-size: 1.2em;
+  font-family: 'Silkscreen', monospace;
+}
+
+#main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+#playing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80%;
+  width: 100%;
+}
+
+#currently-playing {
+  margin-top: 14px;
+}
+
+#duration-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 10%;
+
+  margin-top: 10px;
+}
+
+#duration-area span {
+  width: 3em;
+  text-align: center;
+}
+
+#progress-bar {
+  height: 6px;
+  width: 20vw;
+
+  margin: 0 10px;
+
+  background: #222;
+}
+
+#progress-bar #progress-bar-fill {
+  height: 100%;
+  width: 0%;
+
+  background: #444;
+}
+
+#cover-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 12em;
+  width: 12em;
+}
+
+#cover-container img {
+  height: 100%;
+  width: 100%;
+
+  /* Youtube thumbnails are widescreen, so we crop to make them square */
+  object-fit: cover;
+}

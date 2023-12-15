@@ -34,3 +34,9 @@ interface Video {
   }[]
   lengthSeconds: number
 }
+
+interface VideoFormat {
+  url: string
+  type: string
+  audioQuality: string
+}

@@ -1,4 +1,4 @@
-import { getOptions } from './options'
+import { getOptions, qualityList } from './options'
 import { seedFromPlaylistId } from './radio'
 
 const cachedPlaylistVideos: Video[] = []
@@ -23,6 +23,48 @@ export async function playlistVideos(playlistId: string) {
   cachedPlaylistVideos.push(...result.videos)
 
   return result.videos
+}
+
+/**
+ * Get all of the audio sources for a given video
+ */
+export async function videoAudioSources(videoId: string) {
+  const inst = getOptions().invidiousInstance
+  // Ensure URL ends with / if it doesn't already
+  const url = inst.endsWith('/') ? inst : inst + '/'
+  const result = (await fetch(`${url}api/v1/videos/${videoId}`).then(r => r.json())).adaptiveFormats as VideoFormat[]
+
+  return result.filter(r => r.type.startsWith('audio/'))
+}
+
+/**
+ * Get the preferred audio source for a given video. If the preferred codec is not available, it will fall back to the first.
+ */
+export async function videoAudioSource(videoId: string) {
+  const sources = await videoAudioSources(videoId)
+  const { preferredCodec } = getOptions()
+
+  // Find the preferred codec
+  const codecPreferred = sources.filter(s => s.type.includes(preferredCodec))
+  
+  // Within the preferred codec, find the audio source with the highest quality (within the maxQuality option)
+  const qualityPreferred = sourceWithClosestQuality(codecPreferred)
+
+  // If the preferred codec is not available, fall back to the first
+  return qualityPreferred || codecPreferred[0] || sources[0]
+}
+
+/**
+ * Using the quality list, find the quality closest to the max quality, preferring lower before higher
+ */
+export function sourceWithClosestQuality(sources: VideoFormat[]) {
+  const { maxQuality } = getOptions()
+
+  // Find the quality closest to the max quality, preferring lower before higher
+  const qualities = qualityList.filter(q => qualityList.indexOf(q) <= qualityList.indexOf(maxQuality)).sort((a, b) => qualityList.indexOf(a) - qualityList.indexOf(b))
+  const source = sources.find(s => qualities.some(q => s.audioQuality.includes(q)))
+
+  return source
 }
 
 export async function shuffledPlaylistVideos(playlistId: string) {
