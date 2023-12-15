@@ -42,4 +42,5 @@
 # Thank you
 
 [Invidious](https://github.com/iv-org/invidious) | For providing a free and open source YouTube API through their instances.
+
 [Puffyan](https://puffyan.us/) | For hosting the default US-based Invidious instance.
