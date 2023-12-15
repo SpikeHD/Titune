@@ -36,6 +36,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   const playlistId = getPlaylistId()
   let identifier = ''
 
+  // Set page title to Titune | <radio name>
+  const radioName = getRadioName()
+  document.title = `Titune | ${radioName}`
+
   initAudioController()
 
   // in order to prompt the user to interact with the page, allowing us to play(), we set volume to 0
