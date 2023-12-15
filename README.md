@@ -33,6 +33,7 @@
 * Entirely client-side
 * Create your own based on a playlist
 * Host your own instance
+* Use as an OBS overlay (simply add `&obs=true` to the end of your radio URL!)
 * Customize preferred codec, Invidious instance, and more!
 
 # Notes
