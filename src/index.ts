@@ -3,7 +3,11 @@ import { openModal } from './util/dialogs'
 import { getPlaylistId, getRadioName } from './util/meta'
 import { getCurrentSong } from './util/radio'
 import { createTempVolumeListener, setVolume } from './util/volume'
+import { activateVolumeFade } from './util/volumeFade'
 import { playlistVideos } from './util/youtube'
+
+// OBS overlay flag
+const isObs = new URLSearchParams(window.location.search).get('obs') === 'true'
 
 // Change the meta tags to reflect the playlist, if there is one
 if (getPlaylistId() && getRadioName()) {
@@ -21,6 +25,12 @@ if (getPlaylistId() && getRadioName()) {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
+  // If we're in OBS, add transparent class to HTML
+  if (isObs) {
+    document.documentElement.classList.add('transparent')
+    activateVolumeFade()
+  }
+
   // Create dialog event listeners
   const addButton = document.getElementById('add-icon')!
 
