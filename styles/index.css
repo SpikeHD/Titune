@@ -10,12 +10,31 @@ html, body {
   height: 100vh;
 
   background: #000;
+
   color: #fff;
 
   font-size: 1.2em;
   font-family: 'Silkscreen', monospace;
 
   user-select: none;
+
+  overflow: hidden;
+}
+
+#bg-cover {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  height: 100vh;
+  width: 100vw;
+
+  background-position: center;
+  background-size: cover;
+
+  filter: blur(5px) brightness(0.05);
+
+  z-index: 1;
 }
 
 #main-container {
@@ -25,6 +44,10 @@ html, body {
   justify-content: center;
   height: 100%;
   width: 100%;
+
+  z-index: 2;
+
+  position: relative;
 }
 
 #playing-container {
@@ -61,14 +84,14 @@ html, body {
 
   margin: 0 10px;
 
-  background: #222;
+  background: #444;
 }
 
 #progress-bar #progress-bar-fill {
   height: 100%;
   width: 0%;
 
-  background: #444;
+  background: #999;
 }
 
 #cover-container {

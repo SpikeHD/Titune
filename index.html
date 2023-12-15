@@ -30,6 +30,8 @@
   <body>
     <audio id="radio-audio"></audio>
 
+    <div id="bg-cover"></div>
+
     <div id="main-container">
       <div id="playing-container">
         <div id="cover-container">
@@ -87,23 +89,23 @@
           <img src="icons/plus.svg" />
         </div>
       </div>
-
-      <dialog id="add-dialog">
-        <div class="dialog-text">
-          Playlist URL or ID
-        </div>
-        <input id="playlist-input" type="text" placeholder="https://www.youtube.com/watch?list=...">
-        
-        <div class="dialog-text">
-          Radio Name
-        </div>
-        <input id="radio-name-input" type="text" placeholder="Radio name...">
-
-        <div class="dialog-buttons">
-          <button class="dialog-button" id="add-open">Open</button>
-          <button class="dialog-button" id="add-close">Cancel</button>
-        </div>
-      </dialog>
     </div>
+
+    <dialog id="add-dialog">
+      <div class="dialog-text">
+        Playlist URL or ID
+      </div>
+      <input id="playlist-input" type="text" placeholder="https://www.youtube.com/watch?list=...">
+      
+      <div class="dialog-text">
+        Radio Name
+      </div>
+      <input id="radio-name-input" type="text" placeholder="Radio name...">
+
+      <div class="dialog-buttons">
+        <button class="dialog-button" id="add-open">Open</button>
+        <button class="dialog-button" id="add-close">Cancel</button>
+      </div>
+    </dialog>
   </body>
 </html>
