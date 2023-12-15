@@ -1,0 +1,37 @@
+name: Build and deploy
+'on':
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Deps
+        run: |
+          npm install --global pnpm
+          pnpm i
+
+      - name: Build site
+        run: pnpm build
+
+      - name: Copy additional files
+        run: >
+          printf -- "---\npermalink: /index.html\n---\n" > dist/404.md
+          printf -- "remote_theme: dracula/gh-pages\n" > dist/_config.yml
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: '${{ secrets.GITHUB_TOKEN }}'
+          publish_dir: .
+          enable_jekyll: true
