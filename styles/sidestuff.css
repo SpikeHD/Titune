@@ -1,0 +1,28 @@
+#side-options {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  height: 10%;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.side-icon {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.side-icon:hover {
+  cursor: pointer;
+  filter: brightness(0.7);
+}
+
+.side-icon img {
+  height: 100%;
+}
