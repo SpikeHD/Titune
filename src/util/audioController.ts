@@ -41,7 +41,7 @@ export async function preloadSong(song: VideoFormat) {
 
   const inst = document.body.appendChild(audio)
 
-  inst.addEventListener('loadedmetadata', () => {
+  inst.addEventListener('loadeddata', () => {
     inst.remove()
   })
 }

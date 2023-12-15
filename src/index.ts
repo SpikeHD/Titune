@@ -1,6 +1,8 @@
 import { initAudioController, setSongAndTime } from './util/audioController'
 import { getPlaylistId, getRadioName } from './util/meta'
+import { getOptions } from './util/options'
 import { getCurrentSong } from './util/radio'
+import { createTempVolumeListener, setVolume } from './util/volume'
 import { playlistVideos } from './util/youtube'
 
 // Change the meta tags to reflect the playlist, if there is one
@@ -28,6 +30,10 @@ document.addEventListener('DOMContentLoaded', async () => {
   let identifier = ''
 
   initAudioController()
+
+  // in order to prompt the user to interact with the page, allowing us to play(), we set volume to 0
+  setVolume(0)
+  createTempVolumeListener()
 
   // Ensure we call this at least once, to cache the playlist
   await playlistVideos(playlistId)
