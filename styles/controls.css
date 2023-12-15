@@ -1,5 +1,57 @@
-.icon {
-  width: 2em;
+button {
+  background: none;
+  border: #fff 3px solid;
+  border-radius: 0;
+  outline: none;
+  
+  color: #fff;
+  font-family: 'Silkscreen', monospace;
+}
+
+button:hover {
+  cursor: pointer;
+  filter: brightness(0.7);
+}
+
+.dialog-button {
+  margin: 10px 0;
+}
+
+input[type=checkbox] {
+  background: transparent;
+  border: #fff 3px solid;
+  border-radius: 0;
+  outline: none;
+}
+
+input[type=text] {
+  background: transparent;
+  border: #fff 3px solid;
+  border-radius: 0;
+  outline: none;
+
+  color: #fff;
+
+  width: 80%;
+  font-family: 'Silkscreen', monospace;
+}
+
+dialog {
+  background: #000;
+  color: #fff;
+
+  z-index: -1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+
+  width: 50%;
+}
+
+.dialog-text {
+  margin: 10px 0;
 }
 
 #volume {

@@ -1,6 +1,6 @@
 import { initAudioController, setSongAndTime } from './util/audioController'
+import { openModal } from './util/dialogs'
 import { getPlaylistId, getRadioName } from './util/meta'
-import { getOptions } from './util/options'
 import { getCurrentSong } from './util/radio'
 import { createTempVolumeListener, setVolume } from './util/volume'
 import { playlistVideos } from './util/youtube'
@@ -21,6 +21,13 @@ if (getPlaylistId() && getRadioName()) {
 }
 
 document.addEventListener('DOMContentLoaded', async () => {
+  // Create dialog event listeners
+  const addButton = document.getElementById('add-icon')!
+
+  addButton.addEventListener('click', () => {
+    openModal('add-dialog')
+  })
+
   // Every second, update currently-playing and time-elapsed
   const currentlyPlaying = document.getElementById('currently-playing')!
   const timeElapsed = document.getElementById('time-elapsed')!
@@ -67,3 +74,4 @@ document.addEventListener('DOMContentLoaded', async () => {
     identifier = `${song?.title ?? 'Unknown'}${elapsed}`
   }, 200)
 })
+
