@@ -1,4 +1,7 @@
+import { setSongAndTime } from './audioController';
+import { getPlaylistId } from './meta';
 import { setOption } from './options';
+import { getCurrentSong } from './radio';
 /**
  * Set volume
  */
@@ -30,9 +33,9 @@ export function setVolume(volume) {
  * Create a single-use click listener for the volume bar. Clicking it will trigger the audio element to play
  */
 export function createTempVolumeListener() {
-    const click = () => {
-        const audio = document.getElementById('radio-audio');
-        audio.play();
+    const click = async () => {
+        const { song, elapsed } = await getCurrentSong(getPlaylistId());
+        setSongAndTime(song, elapsed);
         document.removeEventListener('click', click);
     };
     document.addEventListener('click', click);
