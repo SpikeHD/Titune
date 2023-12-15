@@ -19,8 +19,10 @@
 
 # Table of Contents
 
+* [How do I get there?](#how-do-i-get-there)
 * [Features](#features)
-* [How does it work?](#how-does-it-work)
+* [Notes](#notes)
+* [Thank you](#thank-you)
 
 # How do I get there?
 
@@ -28,8 +30,14 @@
 
 # Features
 
-* Entirely client-side. Zero backend for time or song syncing
-* Create your own radio based on a YouTube playlist
+* Entirely client-side
+* Create your own based on a playlist
+* Host your own instance
+* Customize preferred codec, Invidious instance, and more!
+
+# Notes
+
+* DRM protected content is not playable
 
 # Thank you
 
