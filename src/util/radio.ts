@@ -1,4 +1,4 @@
-import { playlistVideos, shuffle } from './youtube'
+import { shuffledPlaylistVideos } from './youtube'
 
 /**
  * Turn playlist id into a numeric 'seed'
@@ -15,9 +15,7 @@ export function seedFromPlaylistId(playlistId: string) {
  * Get the current song and the time elapsed within it using a seed based on playlist ID and the current timestamp
  */
 export async function getCurrentSong(playlistId: string) {
-  const seed = seedFromPlaylistId(playlistId)
-  const rawSongs = await playlistVideos(playlistId)
-  const songs = shuffle(rawSongs, seed)
+  const songs = await shuffledPlaylistVideos(playlistId)
   const now = Date.now()
 
   // Get the total length of all songs
@@ -54,9 +52,7 @@ export async function getCurrentSong(playlistId: string) {
  * Automatically wraps around the playlist if necessary.
  */
 export async function getSongRelative(playlistId: string, offset: number) {
-  const seed = seedFromPlaylistId(playlistId)
-  const rawSongs = await playlistVideos(playlistId)
-  const songs = shuffle(rawSongs, seed)
+  const songs = await shuffledPlaylistVideos(playlistId)
   const current = await getCurrentSong(playlistId)
 
   // Find the index of the current song

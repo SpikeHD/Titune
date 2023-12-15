@@ -70,7 +70,16 @@ export function sourceWithClosestQuality(sources: VideoFormat[]) {
 export async function shuffledPlaylistVideos(playlistId: string) {
   const videos = await playlistVideos(playlistId)
   const seed = seedFromPlaylistId(playlistId)
-  return shuffle(videos, seed)
+  const now = Date.now() / 1000
+
+  // Get the total length of the playlist in seconds
+  const totalLength = videos.reduce((prev, curr) => prev + curr.lengthSeconds, 0)
+
+  // Create a modified seed using the total length of the playlist / the current time
+  // This makes it so that whenever the playlist is run through, it will be shuffled in a different way the next time
+  const dynSeed = Math.floor(now / totalLength) + seed
+
+  return shuffle(videos, dynSeed)
 }
 
 /**

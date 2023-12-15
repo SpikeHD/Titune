@@ -32,6 +32,8 @@ export async function initAudioController() {
  * Preload a given song
  */
 export async function preloadSong(song: VideoFormat) {
+  console.log('Caching next song: ', song.url)
+
   // Create a disabled audio tag, set the src, and then remove it when it's loaded
   const audio = document.createElement('audio')
   audio.src = song.url
