@@ -14,7 +14,9 @@
 </div>
 
 <div align="center">
-  Entirely client-side, fully time & song synced for everyone, radio website.
+ Entirely client-side, fully time & song synced for everyone, radio website.
+ <br/>
+ https://discord.gg/agQ9mRdHMZ
 </div>
 
 # Table of Contents
