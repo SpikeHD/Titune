@@ -14,6 +14,8 @@ html, body {
 
   font-size: 1.2em;
   font-family: 'Silkscreen', monospace;
+
+  user-select: none;
 }
 
 #main-container {
