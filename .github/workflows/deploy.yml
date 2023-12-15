@@ -29,6 +29,9 @@ jobs:
           printf -- "---\npermalink: /index.html\n---\n" > 404.md
           printf -- "remote_theme: dracula/gh-pages\n" > _config.yml
 
+      - name: Remove dist from gitignore
+        run: sed -i '/dist/d' .gitignore
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
