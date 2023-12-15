@@ -44,6 +44,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             // Also set the body background to the cover
             const bgCover = document.getElementById('bg-cover');
             bgCover.style.backgroundImage = `url(${highestWidthThumb})`;
+            // ALSO set the favicon to the cover
+            const favicon = document.getElementById('favicon');
+            favicon.setAttribute('href', highestWidthThumb);
             setSongAndTime(song, elapsed);
         }
         // Prevents rapid DOM updates
