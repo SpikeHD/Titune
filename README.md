@@ -24,6 +24,7 @@
 * [How do I get there?](#how-do-i-get-there)
 * [Features](#features)
 * [Notes](#notes)
+* [Images](#images)
 * [Thank you](#thank-you)
 
 # How do I get there?
@@ -35,12 +36,29 @@
 * Entirely client-side
 * Create your own based on a playlist
 * Host your own instance
-* Use as an OBS overlay (simply add `&obs=true` to the end of your radio URL!)
+* Use as an OBS overlay
 * Customize preferred codec, Invidious instance, and more!
 
 # Notes
 
 * DRM protected content is not playable
+* To use the OBS overlay:
+  * Add `&obs=true` to the end of any Titune link
+  * Add that link as a browser source
+  * Once added, right click and click "Interact"
+  * Move your mouse near the bottom, the volume bar will fade in.
+  * Set the volume
+  * Mousing out will automatically fade out the volume bar
+
+# Images
+
+<div align="center">
+ <a href="https://spikehd.github.io/Titune/?id=PL9amtKqWY8ajIjSWZFrm7ZPlHY_sSyWMK&name=24/7%20Neon%20White">
+   <img width="80%" src="https://github.com/SpikeHD/Titune/assets/25207995/81fdfc93-dc18-414b-bbb8-5334c7797540" />
+ </a>
+
+ <img width="80%" src="https://github.com/SpikeHD/Titune/assets/25207995/f6f61dca-fbd6-464d-b311-b1ac254aa061" />
+</div>
 
 # Thank you
 
