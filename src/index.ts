@@ -1,6 +1,5 @@
 import { initAudioController, setSongAndTime } from './util/audioController'
 import { getPlaylistId, getRadioName } from './util/meta'
-import { getOptions } from './util/options'
 import { getCurrentSong } from './util/radio'
 import { createTempVolumeListener, setVolume } from './util/volume'
 import { playlistVideos } from './util/youtube'
