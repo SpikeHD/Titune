@@ -26,8 +26,8 @@ jobs:
 
       - name: Copy additional files
         run: >
-          printf -- "---\npermalink: /index.html\n---\n" > dist/404.md
-          printf -- "remote_theme: dracula/gh-pages\n" > dist/_config.yml
+          printf -- "---\npermalink: /index.html\n---\n" > 404.md
+          printf -- "remote_theme: dracula/gh-pages\n" > _config.yml
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
