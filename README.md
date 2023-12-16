@@ -24,6 +24,7 @@
 * [How do I get there?](#how-do-i-get-there)
 * [Features](#features)
 * [Notes](#notes)
+* [TODO](#todo)
 * [Images](#images)
 * [Thank you](#thank-you)
 
@@ -49,6 +50,13 @@
   * Move your mouse near the bottom, the volume bar will fade in.
   * Set the volume
   * Mousing out will automatically fade out the volume bar
+
+# TODO
+
+* Options sidebar
+* Show next and previous song
+* Show little errors in the top-middle of the screen
+* Visualizer (maybe)
 
 # Images
 
