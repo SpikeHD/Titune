@@ -1,6 +1,9 @@
+import { getOptions, setOption } from './options'
+
 document.addEventListener('DOMContentLoaded', () => {
   const addOpen = document.getElementById('add-open')!
   const addClose = document.getElementById('add-close')!
+  const optionClose = document.getElementById('options-close')!
 
   addOpen.addEventListener('click', () => {
     // Get the playlist URL or ID from the input
@@ -25,6 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
   addClose.addEventListener('click', () => {
     closeModal('add-dialog')
   })
+
+  optionClose.addEventListener('click', () => {
+    closeModal('options-dialog')
+  })
 })
 
 export function openModal(id: string) {
@@ -35,4 +42,52 @@ export function openModal(id: string) {
 export function closeModal(id: string) {
   const diag = document.getElementById(id)! as HTMLDialogElement
   diag.close()
+}
+
+export function registerButtonHandlers() {
+  // Create dialog event listeners
+  const addButton = document.getElementById('add-icon')!
+  const optionsButton = document.getElementById('options-icon')!
+
+  addButton.addEventListener('click', () => {
+    openModal('add-dialog')
+  })
+
+  optionsButton.addEventListener('click', () => {
+    openModal('options-dialog')
+  })
+
+  // Also handle the option inputs
+  const inputs = document.querySelectorAll('.option-row input')! as NodeListOf<HTMLInputElement>
+  const selects = document.querySelectorAll('.option-row select')! as NodeListOf<HTMLSelectElement>
+
+  inputs.forEach((input) => {
+    // Inputs have a data-option attribute with the option names
+    const option = input.dataset.option!
+
+    // Set the input value to the option value
+    // @ts-expect-error We doin something weird
+    input.value = getOptions()[option]
+
+    // Also setup the event listener to update the option when the input changes
+    input.onchange = () => {
+      // @ts-expect-error We doin something weird
+      setOption(option, input.value)
+    }
+  })
+
+  selects.forEach((select) => {
+    // Selects have a data-option attribute with the option names
+    const option = select.dataset.option!
+
+    // Set the select value to the option value
+    // @ts-expect-error We doin something weird
+    select.value = getOptions()[option]
+
+    // Also setup the event listener to update the option when the select changes
+    select.onchange = () => {
+      // @ts-expect-error We doin something weird
+      setOption(option, select.value)
+    }
+  })
 }
