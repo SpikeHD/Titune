@@ -1,5 +1,5 @@
 import { initAudioController, setSongAndTime } from './util/audioController';
-import { openModal } from './util/dialogs';
+import { registerButtonHandlers } from './util/dialogs';
 import { getPlaylistId, getRadioName } from './util/meta';
 import { getCurrentSong } from './util/radio';
 import { createTempVolumeListener, setVolume } from './util/volume';
@@ -25,11 +25,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.documentElement.classList.add('transparent');
         activateVolumeFade();
     }
-    // Create dialog event listeners
-    const addButton = document.getElementById('add-icon');
-    addButton.addEventListener('click', () => {
-        openModal('add-dialog');
-    });
+    registerButtonHandlers();
     // Every second, update currently-playing and time-elapsed
     const currentlyPlaying = document.getElementById('currently-playing');
     const timeElapsed = document.getElementById('time-elapsed');
@@ -45,6 +41,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     setVolume(0);
     createTempVolumeListener();
     // Ensure we call this at least once, to cache the playlist
+    if (!playlistId) {
+        // Set the song name to something helpful
+        currentlyPlaying.textContent = 'Create a radio from the top left!';
+        return;
+    }
     await playlistVideos(playlistId);
     setInterval(async () => {
         const { song, elapsed } = await getCurrentSong(playlistId);

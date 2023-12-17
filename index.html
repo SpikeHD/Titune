@@ -19,7 +19,7 @@
     <meta content="Titune" property="og:title">
     <meta content="Share your own playlist-based radio stations!" property="og:description">
     <meta content="https://spikehd.github.io/titune" property="og:url">
-    <meta content="#fffs" data-react-helmet="true" name="theme-color" />
+    <meta content="#111" data-react-helmet="true" name="theme-color" />
 
     <!-- Twitter metas -->
     <meta content="Titune" name="twitter:title">
@@ -37,7 +37,7 @@
     <div id="main-container">
       <div id="playing-container">
         <div id="cover-container">
-          <img id="cover" src="https://via.placeholder.com/300x300" alt="Cover art">
+          <img id="cover" src="https://dummyimage.com/300x300/999999/0011ff&text=+" alt="Cover art">
         </div>
 
         <span id="currently-playing">
@@ -83,7 +83,7 @@
       </div>
 
       <div id="side-options">
-        <div id="options-icon" class="side-icon" style="display:none">
+        <div id="options-icon" class="side-icon">
           <img src="icons/cog.svg" />
         </div>
 
@@ -108,6 +108,42 @@
         <button class="dialog-button" id="add-open">Open</button>
         <button class="dialog-button" id="add-close">Cancel</button>
       </div>
+    </dialog>
+
+    <dialog id="options-dialog">
+      <div class="option-row">
+        <div class="option-label">Invidious Instance</div>
+        <div class="option-input">
+          <input id="invidious-instance-input" data-option="invidiousInstance" type="text" placeholder="https://...">
+        </div>
+      </div>
+
+      <div class="option-row">
+        <div class="option-label">Preferred Codec</div>
+        <div class="option-input">
+          <select id="preferred-codec-input" data-option="preferredCodec">
+            <option value="av1">AV1</option>
+            <option value="avc1">AVC1</option>
+            <option value="vp9">VP9</option>
+            <option value="opus">Opus</option>
+            <option value="mp4a">MP4A</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="option-row">
+        <div class="option-label">Max Quality</div>
+        <div class="option-input">
+          <select id="max-quality-input" data-option="maxQuality">
+            <option value="AUDIO_QUALITY_ULTRALOW">Very Low</option>
+            <option value="AUDIO_QUALITY_LOW">Low</option>
+            <option value="AUDIO_QUALITY_MEDIUM">Medium</option>
+            <option value="AUDIO_QUALITY_HIGH">High</option>
+          </select>
+        </div>
+      </div>
+
+      <button class="dialog-button" id="options-close">Close</button>
     </dialog>
   </body>
 </html>
