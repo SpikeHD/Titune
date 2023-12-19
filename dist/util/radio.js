@@ -1,15 +1,5 @@
 import { shuffledPlaylistVideos } from './youtube';
 /**
- * Turn playlist id into a numeric 'seed'
- */
-export function seedFromPlaylistId(playlistId) {
-    let seed = 0;
-    for (let i = 0; i < playlistId.length; i++) {
-        seed += playlistId.charCodeAt(i);
-    }
-    return seed;
-}
-/**
  * Get the current song and the time elapsed within it using a seed based on playlist ID and the current timestamp
  */
 export async function getCurrentSong(playlistId) {

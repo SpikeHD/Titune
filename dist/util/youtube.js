@@ -1,5 +1,4 @@
 import { getOptions, qualityList } from './options';
-import { seedFromPlaylistId } from './radio';
 const cachedPlaylistVideos = [];
 export function playlistFromLink(link) {
     const playlistId = link.match(/(?<=list=)[a-zA-Z0-9_-]+/)?.[0];
@@ -53,13 +52,12 @@ export function sourceWithClosestQuality(sources) {
 }
 export async function shuffledPlaylistVideos(playlistId) {
     const videos = await playlistVideos(playlistId);
-    const seed = seedFromPlaylistId(playlistId);
     const now = Date.now() / 1000;
     // Get the total length of the playlist in seconds
     const totalLength = videos.reduce((prev, curr) => prev + curr.lengthSeconds, 0);
     // Create a modified seed using the total length of the playlist / the current time
     // This makes it so that whenever the playlist is run through, it will be shuffled in a different way the next time
-    const dynSeed = Math.floor(now / totalLength) + seed;
+    const dynSeed = Math.floor(now / totalLength);
     return shuffle(videos, dynSeed);
 }
 /**
