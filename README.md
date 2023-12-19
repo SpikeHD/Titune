@@ -53,10 +53,10 @@
 
 # TODO
 
-* Options sidebar
-* Show next and previous song
-* Show little errors in the top-middle of the screen
-* Visualizer (maybe)
+* [x] Options sidebar
+* [ ] Show next and previous song
+* [ ] Show little errors in the top-middle of the screen
+* [ ] Visualizer (maybe)
 
 # Images
 
