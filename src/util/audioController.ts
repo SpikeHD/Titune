@@ -10,7 +10,10 @@ export async function setSongAndTime(song: Video, time: number) {
 
   audio.src = src.url
   audio.currentTime = time
-  audio.play()
+
+  audio.onloadeddata = () => {
+    audio.play()
+  }
 
   // Whenever we set the song, we should also preload the next song
   const nextSong = await getSongRelative(getPlaylistId(), 1)
@@ -41,7 +44,7 @@ export async function preloadSong(song: VideoFormat) {
 
   const inst = document.body.appendChild(audio)
 
-  inst.addEventListener('loadeddata', () => {
+  inst.onloadeddata = () => {
     inst.remove()
-  })
+  }
 }
