@@ -27,3 +27,7 @@
 .side-icon img {
   height: 100%;
 }
+
+#github-icon img {
+  height: 80% !important;
+}
