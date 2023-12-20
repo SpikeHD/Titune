@@ -6,6 +6,7 @@ export async function loadSubmissions() {
     const elm = document.createElement('a')
     elm.classList.add('submission-row')
     elm.href = `?id=${value.playlist_id}&name=${key}`
+    elm.target = '_blank'
 
     const title = document.createElement('div')
     title.classList.add('submission-cell')

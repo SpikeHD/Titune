@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   submissionClose.addEventListener('click', () => {
-    closeModal('submission-dialog')
+    closeModal('list-dialog')
   })
 
   submissionCreate.addEventListener('click', () => {
