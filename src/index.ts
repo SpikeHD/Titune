@@ -63,6 +63,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     return
   }
 
+  if (!playlistId) return
+  
   await playlistVideos(playlistId)
 
   setInterval(async () => {
