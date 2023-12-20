@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles/index.css">
     <link rel="stylesheet" href="styles/controls.css">
     <link rel="stylesheet" href="styles/sidestuff.css">
+    <link rel="stylesheet" href="styles/submissions.css">
 
     <link rel="icon" id="favicon" href="icons/titune.png" type="image/x-icon" />
 
@@ -91,6 +92,10 @@
           <img src="icons/cog.svg" />
         </div>
 
+        <div id="list-icon" class="side-icon">
+          <img src="icons/list.svg" />
+        </div>
+
         <a href="https://github.com/SpikeHD/Titune" target="_blank" id="github-icon" class="side-icon">
           <img src="icons/github.svg" />
         </a>
@@ -148,6 +153,28 @@
       </div>
 
       <button class="dialog-button" id="options-close">Close</button>
+    </dialog>
+
+    <dialog id="list-dialog">
+      <div class="dialog-text">
+        User Submissions
+      </div>
+
+      <div class="submission-table">
+        <div class="submission-header">
+          <div class="submission-name">Radio Name</div>
+          <div class="submission-url">Submitted By</div>
+        </div>
+
+        <div class="submission-body">
+          <!-- Filled via JS -->
+        </div>
+      </div>
+
+      <div class="dialog-buttons">
+        <button class="dialog-button" id="list-submit">Submit Current Radio</button>
+        <button class="dialog-button" id="list-close">Cancel</button>
+      </div>
     </dialog>
   </body>
 </html>
