@@ -40,7 +40,10 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   submissionCreate.addEventListener('click', () => {
-    // TODO open github issues with template
+    open(
+      'https://github.com/SpikeHD/Titune/issues/new?assignees=&labels=submission&projects=&template=submission.md&title=%5BSUBMISSION%5D',
+      '_blank'
+    )
   })
 })
 
