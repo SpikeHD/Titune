@@ -49,6 +49,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         currentlyPlaying.textContent = 'Create a radio from the top left!';
         return;
     }
+    if (!playlistId)
+        return;
     await playlistVideos(playlistId);
     setInterval(async () => {
         const { song, elapsed } = await getCurrentSong(playlistId);

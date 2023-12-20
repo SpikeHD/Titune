@@ -1,5 +1,5 @@
 export async function loadSubmissions() {
-  const resp = await fetch('./station_list.json')
+  const resp = await fetch(`${window.location.href}station_list.json`)
   const json = await resp.json() as Submissions
 
   Object.entries(json).forEach(([key, value]) => {
