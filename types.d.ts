@@ -42,3 +42,10 @@ interface VideoFormat {
   type: string
   audioQuality: string
 }
+
+interface Submissions {
+  [key: string]: {
+    submitted_by: string
+    playlist_id: string
+  }
+}

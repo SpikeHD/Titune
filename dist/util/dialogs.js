@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const addOpen = document.getElementById('add-open');
     const addClose = document.getElementById('add-close');
     const optionClose = document.getElementById('options-close');
+    const submissionClose = document.getElementById('list-close');
+    const submissionCreate = document.getElementById('list-submit');
     addOpen.addEventListener('click', () => {
         // Get the playlist URL or ID from the input
         const input = document.getElementById('playlist-input');
@@ -25,6 +27,12 @@ document.addEventListener('DOMContentLoaded', () => {
     optionClose.addEventListener('click', () => {
         closeModal('options-dialog');
     });
+    submissionClose.addEventListener('click', () => {
+        closeModal('list-dialog');
+    });
+    submissionCreate.addEventListener('click', () => {
+        open('https://github.com/SpikeHD/Titune/issues/new?assignees=&labels=submission&projects=&template=submission.md&title=%5BSUBMISSION%5D', '_blank');
+    });
 });
 export function openModal(id) {
     const diag = document.getElementById(id);
@@ -38,11 +46,15 @@ export function registerButtonHandlers() {
     // Create dialog event listeners
     const addButton = document.getElementById('add-icon');
     const optionsButton = document.getElementById('options-icon');
+    const listButton = document.getElementById('list-icon');
     addButton.addEventListener('click', () => {
         openModal('add-dialog');
     });
     optionsButton.addEventListener('click', () => {
         openModal('options-dialog');
+    });
+    listButton.addEventListener('click', () => {
+        openModal('list-dialog');
     });
     // Also handle the option inputs
     const inputs = document.querySelectorAll('.option-row input');

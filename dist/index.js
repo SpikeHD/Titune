@@ -2,6 +2,7 @@ import { initAudioController, setSongAndTime } from './util/audioController';
 import { registerButtonHandlers } from './util/dialogs';
 import { getPlaylistId, getRadioName } from './util/meta';
 import { getCurrentSong } from './util/radio';
+import { loadSubmissions } from './util/submissions';
 import { createTempVolumeListener, setVolume } from './util/volume';
 import { activateVolumeFade } from './util/volumeFade';
 import { playlistVideos } from './util/youtube';
@@ -40,6 +41,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     // in order to prompt the user to interact with the page, allowing us to play(), we set volume to 0
     setVolume(0);
     createTempVolumeListener();
+    // Load user submitted playlists
+    loadSubmissions();
     // Ensure we call this at least once, to cache the playlist
     if (!playlistId) {
         // Set the song name to something helpful
