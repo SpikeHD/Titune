@@ -1,6 +1,10 @@
+import { getOptions } from "./options"
+
 const notices: HTMLDivElement[] = []
 
 export async function createNotice(message: string, type: string) {
+  if (!getOptions().showNotices) return
+
   const notice = document.createElement('div')
   const container = document.querySelector('#notice-container')!
   notice.classList.add('notice')
