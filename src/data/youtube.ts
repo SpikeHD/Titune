@@ -1,4 +1,4 @@
-import { getOptions, qualityList } from './options'
+import { getOptions, qualityList } from '../util/options'
 
 const cachedPlaylistVideos: Video[] = []
 

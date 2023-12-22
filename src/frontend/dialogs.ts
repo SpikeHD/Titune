@@ -1,4 +1,4 @@
-import { getOptions, setOption } from './options'
+import { getOptions, setOption } from '../util/options'
 
 document.addEventListener('DOMContentLoaded', () => {
   const addOpen = document.getElementById('add-open')!

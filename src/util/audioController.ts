@@ -1,8 +1,8 @@
 import { getPlaylistId } from './meta'
-import { createNotice } from './notices'
+import { createNotice } from '../frontend/notices'
 import { getOptions } from './options'
 import { getSongRelative } from './radio'
-import { videoAudioSource } from './youtube'
+import { videoAudioSource } from '../data/youtube'
 
 export async function setSongAndTime(song: Video, time: number) {
   // Get the audio element

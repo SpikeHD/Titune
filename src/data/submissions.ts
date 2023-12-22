@@ -1,4 +1,4 @@
-import { createNotice } from './notices'
+import { createNotice } from '../frontend/notices'
 
 export async function loadSubmissions() {
   const resp = await fetch(`https://${location.host + location.pathname}station_list.json`).catch(() => createNotice('Failed to load radio submissions.', 'error'))
