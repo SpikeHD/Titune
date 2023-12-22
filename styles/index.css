@@ -37,6 +37,10 @@ html.transparent #side-options {
   display: none;
 }
 
+html.transparent #notice-container {
+  display: none;
+}
+
 #bg-cover {
   position: absolute;
   top: 0;
