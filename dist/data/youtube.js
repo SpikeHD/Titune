@@ -1,4 +1,4 @@
-import { getOptions, qualityList } from './options';
+import { getOptions, qualityList } from '../util/options';
 const cachedPlaylistVideos = [];
 export function playlistFromLink(link) {
     const playlistId = link.match(/(?<=list=)[a-zA-Z0-9_-]+/)?.[0];

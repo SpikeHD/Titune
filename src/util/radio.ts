@@ -1,4 +1,4 @@
-import { shuffledPlaylistVideos } from './youtube'
+import { shuffledPlaylistVideos } from '../data/youtube'
 
 /**
  * Get the current song and the time elapsed within it using a seed based on playlist ID and the current timestamp

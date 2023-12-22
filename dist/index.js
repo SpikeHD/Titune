@@ -1,11 +1,11 @@
 import { initAudioController, setSongAndTime } from './util/audioController';
-import { registerButtonHandlers } from './util/dialogs';
+import { registerButtonHandlers } from './frontend/dialogs';
 import { getPlaylistId, getRadioName } from './util/meta';
 import { getCurrentSong } from './util/radio';
-import { loadSubmissions } from './util/submissions';
+import { loadSubmissions } from './data/submissions';
 import { createTempVolumeListener, setVolume } from './util/volume';
 import { activateVolumeFade } from './util/volumeFade';
-import { playlistVideos } from './util/youtube';
+import { playlistVideos } from './data/youtube';
 // OBS overlay flag
 const isObs = new URLSearchParams(window.location.search).get('obs') === 'true';
 // Change the meta tags to reflect the playlist, if there is one

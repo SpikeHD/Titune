@@ -1,10 +1,19 @@
-import { getOptions, setOption } from './options';
+import { getOptions, setOption } from '../util/options';
 document.addEventListener('DOMContentLoaded', () => {
+    const fullyHideSidebar = getOptions().fullyHideSidebar;
+    const sidebar = document.getElementById('side-options');
     const addOpen = document.getElementById('add-open');
     const addClose = document.getElementById('add-close');
     const optionClose = document.getElementById('options-close');
     const submissionClose = document.getElementById('list-close');
     const submissionCreate = document.getElementById('list-submit');
+    sidebar.style.opacity = fullyHideSidebar ? '0' : '0.1';
+    sidebar.addEventListener('mouseenter', () => {
+        sidebar.style.opacity = '1';
+    });
+    sidebar.addEventListener('mouseleave', () => {
+        sidebar.style.opacity = fullyHideSidebar ? '0' : '0.1';
+    });
     addOpen.addEventListener('click', () => {
         // Get the playlist URL or ID from the input
         const input = document.getElementById('playlist-input');

@@ -10,7 +10,8 @@ const defaultOptions = {
     volume: 50,
     preferredCodec: 'mp4a',
     maxQuality: 'AUDIO_QUALITY_HIGH',
-    showNotices: true
+    showNotices: true,
+    fullyHideSidebar: false
 };
 export function getOptions() {
     const options = localStorage.getItem('options');

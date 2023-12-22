@@ -1,4 +1,4 @@
-import { getOptions } from './options';
+import { getOptions } from '../util/options';
 const notices = [];
 export async function createNotice(message, type) {
     if (!getOptions().showNotices)
