@@ -32,6 +32,8 @@ input[type=text] {
 
   color: #fff;
 
+  padding: 6px;
+
   width: 80%;
   font-family: 'Silkscreen', monospace;
 }
@@ -83,6 +85,36 @@ dialog {
 dialog::backdrop {
   backdrop-filter: blur(5px);
   background-color: rgba(0,0,0,0.5);
+}
+
+#add-dialog {
+  width: 30%;
+}
+
+input[type=checkbox] {
+  width: 1.7em !important;
+  height: 1.7em !important;
+
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  background: #000;
+  border: #fff 3px solid;
+  border-radius: 0;
+  outline: none;
+
+  padding: 0;
+  margin: 0;
+}
+
+input[type=checkbox]:checked {
+  background: #fff;
+  box-shadow:inset 0px 0px 0px 4px #000;
+}
+
+input[type=checkbox]:hover {
+  cursor: pointer;
 }
 
 .dialog-text {

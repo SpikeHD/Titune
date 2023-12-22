@@ -1,4 +1,5 @@
 import { getPlaylistId } from './meta';
+import { createNotice } from './notices';
 import { getOptions } from './options';
 import { getSongRelative } from './radio';
 import { videoAudioSource } from './youtube';
@@ -10,6 +11,10 @@ export async function setSongAndTime(song, time) {
     audio.currentTime = time;
     audio.onloadeddata = () => {
         audio.play();
+    };
+    audio.onerror = (e) => {
+        console.error(e);
+        createNotice('An error occurred while trying to play the song. Check DevTools. Is it DRM protected?', 'error');
     };
     // Whenever we set the song, we should also preload the next song
     const nextSong = await getSongRelative(getPlaylistId(), 1);
@@ -36,5 +41,9 @@ export async function preloadSong(song) {
     const inst = document.body.appendChild(audio);
     inst.onloadeddata = () => {
         inst.remove();
+    };
+    inst.onerror = (e) => {
+        console.error(e);
+        createNotice('There was an error preloading the next song. It may or may not load.', 'error');
     };
 }

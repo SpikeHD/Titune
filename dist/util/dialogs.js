@@ -63,10 +63,23 @@ export function registerButtonHandlers() {
         // Inputs have a data-option attribute with the option names
         const option = input.dataset.option;
         // Set the input value to the option value
-        // @ts-expect-error We doin something weird
-        input.value = getOptions()[option];
+        // Checkbox check
+        if (input.type === 'checkbox') {
+            // @ts-expect-error We doin something weird
+            input.checked = getOptions()[option];
+        }
+        else {
+            // @ts-expect-error We doin something weird
+            input.value = getOptions()[option];
+        }
         // Also setup the event listener to update the option when the input changes
         input.onchange = () => {
+            // if it's a checkbox
+            if (input.type === 'checkbox') {
+                // @ts-expect-error We doin something weird
+                setOption(option, input.checked);
+                return;
+            }
             // @ts-expect-error We doin something weird
             setOption(option, input.value);
         };

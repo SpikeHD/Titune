@@ -1,6 +1,9 @@
+import { createNotice } from './notices';
 export async function loadSubmissions() {
-    const resp = await fetch(`https://${location.host + location.pathname}station_list.json`);
-    const json = await resp.json();
+    const resp = await fetch(`https://${location.host + location.pathname}station_list.json`).catch(() => createNotice('Failed to load radio submissions.', 'error'));
+    const json = resp?.json && await resp.json();
+    if (!json)
+        return;
     Object.entries(json).forEach(([key, value]) => {
         const elm = document.createElement('a');
         elm.classList.add('submission-row');

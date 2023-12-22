@@ -9,7 +9,8 @@ const defaultOptions = {
     shaders: true,
     volume: 50,
     preferredCodec: 'mp4a',
-    maxQuality: 'AUDIO_QUALITY_HIGH'
+    maxQuality: 'AUDIO_QUALITY_HIGH',
+    showNotices: true
 };
 export function getOptions() {
     const options = localStorage.getItem('options');
