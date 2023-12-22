@@ -1,4 +1,4 @@
-import { getOptions } from "./options"
+import { getOptions } from './options'
 
 const notices: HTMLDivElement[] = []
 
