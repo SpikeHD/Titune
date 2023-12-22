@@ -134,6 +134,8 @@ input[type=checkbox]:hover {
   align-items: center;
   justify-content: space-between;
 
+  margin: 8px 0;
+
   width: 100%;
 }
 

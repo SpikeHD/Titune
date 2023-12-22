@@ -5,6 +5,7 @@ interface Options {
   preferredCodec: 'av1' | 'avc1' | 'vp9' | 'opus' | 'mp4a'
   maxQuality: typeof qualityList[number]
   showNotices: boolean
+  fullyHideSidebar: boolean
 }
 
 export const qualityList = [
@@ -20,7 +21,8 @@ const defaultOptions: Options = {
   volume: 50,
   preferredCodec: 'mp4a',
   maxQuality: 'AUDIO_QUALITY_HIGH',
-  showNotices: true
+  showNotices: true,
+  fullyHideSidebar: false
 }
 
 export function getOptions(): Options {
