@@ -27,6 +27,5 @@ export async function toBlobURL(imgUrl) {
     const resp = await fetch(imgUrl);
     const blob = await resp.blob();
     const url = URL.createObjectURL(blob);
-    console.log(url);
     return url;
 }
