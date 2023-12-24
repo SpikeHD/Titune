@@ -1,4 +1,8 @@
+const imageMap = {};
 export async function cropToSquare(imgUrl) {
+    // Check if we've already cropped this image
+    if (imageMap[imgUrl])
+        return imageMap[imgUrl];
     const img = new Image();
     img.crossOrigin = 'anonymous';
     img.src = await toBlobURL(imgUrl);
@@ -13,7 +17,9 @@ export async function cropToSquare(imgUrl) {
     return new Promise((resolve) => {
         canvas.toBlob((blob) => {
             // If this comes back null, just return the original URL
-            blob ? resolve(URL.createObjectURL(blob)) : resolve(imgUrl);
+            const url = blob ? URL.createObjectURL(blob) : imgUrl;
+            imageMap[imgUrl] = url;
+            resolve(url);
         });
     });
 }
