@@ -19,7 +19,7 @@ const defaultOptions: Options = {
   invidiousInstance: 'https://vid.puffyan.us/',
   shaders: true,
   volume: 50,
-  preferredCodec: 'mp4a',
+  preferredCodec: 'opus',
   maxQuality: 'AUDIO_QUALITY_HIGH',
   showNotices: true,
   fullyHideSidebar: false
