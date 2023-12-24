@@ -8,8 +8,12 @@ export async function setSongAndTime(song: Video, time: number) {
   // Get the audio element
   const audio = document.getElementById('radio-audio') as HTMLAudioElement
   const src = await videoAudioSource(song.videoId)
+  let wasSongSwap = false
 
-  if (src.url !== audio.src) audio.src = src.url
+  if (src.url !== audio.src) {
+    audio.src = src.url
+    wasSongSwap = true
+  }
 
   audio.currentTime = time
 
@@ -18,10 +22,12 @@ export async function setSongAndTime(song: Video, time: number) {
     createNotice('An error occurred while trying to play the song. Check DevTools. Is it DRM protected?', 'error')
   }
 
-  // Whenever we set the song, we should also preload the next song
-  const nextSong = await getSongRelative(getPlaylistId(), 1)
-  const nextAudio = await videoAudioSource(nextSong.videoId)
-  await preloadSong(nextAudio)
+  if (wasSongSwap) {
+    // Whenever we set the song, we should also preload the next song
+    const nextSong = await getSongRelative(getPlaylistId(), 1)
+    const nextAudio = await videoAudioSource(nextSong.videoId)
+    await preloadSong(nextAudio)
+  }
 }
 
 /**

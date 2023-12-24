@@ -72,7 +72,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             bgCover.style.backgroundImage = `url(${highestWidthThumb})`;
             // ALSO set the favicon to the cover
             const favicon = document.getElementById('favicon');
-            favicon.setAttribute('href', await cropToSquare(highestWidthThumb));
+            const newFavicon = await cropToSquare(highestWidthThumb);
+            favicon.setAttribute('href', newFavicon ?? highestWidthThumb);
             setSongAndTime(song, elapsed);
         }
         // Prevents rapid DOM updates
