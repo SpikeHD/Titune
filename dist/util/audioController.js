@@ -7,7 +7,8 @@ export async function setSongAndTime(song, time) {
     // Get the audio element
     const audio = document.getElementById('radio-audio');
     const src = await videoAudioSource(song.videoId);
-    audio.src = src.url;
+    if (src.url !== audio.src)
+        audio.src = src.url;
     audio.currentTime = time;
     audio.onerror = (e) => {
         console.error(e);
