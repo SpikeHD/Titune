@@ -1,5 +1,6 @@
 export function cropToSquare(imgUrl) {
     const img = new Image();
+    img.crossOrigin = 'anonymous';
     img.src = imgUrl;
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
