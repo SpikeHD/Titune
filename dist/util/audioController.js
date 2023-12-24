@@ -9,9 +9,6 @@ export async function setSongAndTime(song, time) {
     const src = await videoAudioSource(song.videoId);
     audio.src = src.url;
     audio.currentTime = time;
-    audio.onloadeddata = () => {
-        audio.play();
-    };
     audio.onerror = (e) => {
         console.error(e);
         createNotice('An error occurred while trying to play the song. Check DevTools. Is it DRM protected?', 'error');

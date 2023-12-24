@@ -39,6 +39,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   const timeElapsed = document.getElementById('time-elapsed')!
   const songLength = document.getElementById('duration')!
   const cover = document.getElementById('cover')!
+  const audio = document.getElementById('radio-audio') as HTMLAudioElement
   const playlistId = getPlaylistId()
   let identifier = ''
 
@@ -66,6 +67,13 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (!playlistId) return
   
   await playlistVideos(playlistId)
+
+  audio.onloadeddata = async () => {
+    const { song, elapsed } = await getCurrentSong(playlistId)
+    setSongAndTime(song as Video, elapsed)
+
+    audio.play()
+  }
 
   setInterval(async () => {
     const { song, elapsed } = await getCurrentSong(playlistId)

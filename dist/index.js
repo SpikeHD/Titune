@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const timeElapsed = document.getElementById('time-elapsed');
     const songLength = document.getElementById('duration');
     const cover = document.getElementById('cover');
+    const audio = document.getElementById('radio-audio');
     const playlistId = getPlaylistId();
     let identifier = '';
     // Set page title to Titune | <radio name>
@@ -52,6 +53,11 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (!playlistId)
         return;
     await playlistVideos(playlistId);
+    audio.onloadeddata = async () => {
+        const { song, elapsed } = await getCurrentSong(playlistId);
+        setSongAndTime(song, elapsed);
+        audio.play();
+    };
     setInterval(async () => {
         const { song, elapsed } = await getCurrentSong(playlistId);
         // If the song changes, set the new song and timestamp
