@@ -6,6 +6,7 @@ import { loadSubmissions } from './data/submissions'
 import { createTempVolumeListener, setVolume } from './util/volume'
 import { activateVolumeFade } from './util/volumeFade'
 import { playlistVideos } from './data/youtube'
+import { cropToSquare } from './data/image'
 
 // OBS overlay flag
 const isObs = new URLSearchParams(window.location.search).get('obs') === 'true'
@@ -91,7 +92,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       // ALSO set the favicon to the cover
       const favicon = document.getElementById('favicon')!
-      favicon.setAttribute('href', highestWidthThumb)
+      favicon.setAttribute('href', await cropToSquare(highestWidthThumb))
 
       setSongAndTime(song, elapsed)
     }
