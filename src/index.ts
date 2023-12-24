@@ -92,7 +92,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
       // ALSO set the favicon to the cover
       const favicon = document.getElementById('favicon')!
-      favicon.setAttribute('href', await cropToSquare(highestWidthThumb))
+      const newFavicon = await cropToSquare(highestWidthThumb)
+      favicon.setAttribute('href', newFavicon ?? highestWidthThumb)
 
       setSongAndTime(song, elapsed)
     }
