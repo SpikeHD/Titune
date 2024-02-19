@@ -16,7 +16,7 @@ export const qualityList = [
 ]
 
 const defaultOptions: Options = {
-  invidiousInstance: 'https://iv.ggtyler.dev/',
+  invidiousInstance: 'https://inv.tux.pizza',
   shaders: true,
   volume: 50,
   preferredCodec: 'opus',

@@ -5,7 +5,7 @@ export const qualityList = [
     'AUDIO_QUALITY_HIGH'
 ];
 const defaultOptions = {
-    invidiousInstance: 'https://iv.ggtyler.dev/',
+    invidiousInstance: 'https://inv.tux.pizza',
     shaders: true,
     volume: 50,
     preferredCodec: 'opus',
