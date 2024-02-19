@@ -9,6 +9,7 @@ import { playlistVideos } from './data/youtube'
 import { cropToSquare } from './data/image'
 
 // OBS overlay flag
+let fetching = ''
 const isObs = new URLSearchParams(window.location.search).get('obs') === 'true'
 
 // Change the meta tags to reflect the playlist, if there is one
@@ -95,7 +96,10 @@ document.addEventListener('DOMContentLoaded', async () => {
       const newFavicon = await cropToSquare(highestWidthThumb)
       favicon.setAttribute('href', newFavicon ?? highestWidthThumb)
 
-      setSongAndTime(song, elapsed)
+      if (fetching !== song.videoId) {
+        fetching = song.videoId
+        setSongAndTime(song, elapsed)
+      }
     }
 
     // Prevents rapid DOM updates
