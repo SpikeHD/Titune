@@ -72,4 +72,4 @@
 
 [Invidious](https://github.com/iv-org/invidious) | For providing a free and open source YouTube API through their instances.
 
-[ggtyler](https://www.ggtyler.dev/) | For hosting the default US-based Invidious instance.
+[tuxsudo](https://tux.pizza/) | For hosting the default US-based Invidious instance.
