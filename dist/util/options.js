@@ -5,7 +5,7 @@ export const qualityList = [
     'AUDIO_QUALITY_HIGH'
 ];
 const defaultOptions = {
-    invidiousInstance: 'https://vid.puffyan.us/',
+    invidiousInstance: 'https://iv.ggtyler.dev/',
     shaders: true,
     volume: 50,
     preferredCodec: 'opus',
