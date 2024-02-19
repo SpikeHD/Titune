@@ -8,6 +8,7 @@ import { activateVolumeFade } from './util/volumeFade';
 import { playlistVideos } from './data/youtube';
 import { cropToSquare } from './data/image';
 // OBS overlay flag
+let fetching = '';
 const isObs = new URLSearchParams(window.location.search).get('obs') === 'true';
 // Change the meta tags to reflect the playlist, if there is one
 if (getPlaylistId() && getRadioName()) {
@@ -74,7 +75,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             const favicon = document.getElementById('favicon');
             const newFavicon = await cropToSquare(highestWidthThumb);
             favicon.setAttribute('href', newFavicon ?? highestWidthThumb);
-            setSongAndTime(song, elapsed);
+            if (fetching !== song.videoId) {
+                fetching = song.videoId;
+                setSongAndTime(song, elapsed);
+            }
         }
         // Prevents rapid DOM updates
         if (`${song?.title ?? 'Unknown'}${elapsed}` === identifier) {
