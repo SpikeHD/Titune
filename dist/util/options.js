@@ -5,7 +5,7 @@ export const qualityList = [
     'AUDIO_QUALITY_HIGH'
 ];
 const defaultOptions = {
-    invidiousInstance: 'https://inv.tux.pizza',
+    invidiousInstance: 'https://inv.thepixora.com',
     shaders: true,
     volume: 50,
     preferredCodec: 'opus',

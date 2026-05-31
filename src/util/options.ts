@@ -16,7 +16,7 @@ export const qualityList = [
 ]
 
 const defaultOptions: Options = {
-  invidiousInstance: 'https://inv.tux.pizza',
+  invidiousInstance: 'https://inv.thepixora.com',
   shaders: true,
   volume: 50,
   preferredCodec: 'opus',
